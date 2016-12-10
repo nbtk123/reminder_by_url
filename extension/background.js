@@ -27,15 +27,35 @@ var url_to_reminder = {
 	"https://www.facebook.com/" : ["publish your github to coworkers"]
 }
 
+function getReminders(taburl, onLoad, onError) {
+	var x = new XMLHttpRequest();
+	x.open('GET', "https://url-based-reminder.herokuapp.com/user/nbtk123");
+	// The Google image search API responds with JSON, so let Chrome parse it.
+	x.responseType = 'json';
+	x.onload = function() {
+		onLoad(x.response[taburl]);
+	};
+	x.onerror = function() {
+		onError();
+	};
+	x.send();
+}
+
 // waiting for a 'tab_change' message from the content script, which is activated on every tab URL change, including openning a new tab
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.action == "tab_change") {
-		sendResponse({message: request.action+" received."});
+		//request reminders		
 		getCurrentTabUrl(function(url) {
-			if(url_to_reminder[url]) {
-				alert(url_to_reminder[url]);
-			}
+			getReminders(url, function(reminders) {
+				if (reminders) {
+					alert(reminders);
+				}
+			}, function() {
+				//TODO: anything? getReminders request error...
+			});
 		});
+		//Alerting the user
+		sendResponse({message: request.action+" received."});
 	} else {
 		consolge.log("request.action error");
 	}
