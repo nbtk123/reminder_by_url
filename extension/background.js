@@ -24,7 +24,7 @@ function getCurrentTabUrl(callback) {
 }
 
 var url_to_reminder = {
-	"https://www.facebook.com/" : "yolo facebook"
+	"https://www.facebook.com/" : ["publish your github to coworkers"]
 }
 
 // waiting for a 'tab_change' message from the content script, which is activated on every tab URL change, including openning a new tab
