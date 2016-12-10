@@ -1,5 +1,5 @@
 var express = require('express');
-var mongoClient = require('mongodb').MongoClient;
+var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var app = express();
 
