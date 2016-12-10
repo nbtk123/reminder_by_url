@@ -30,6 +30,7 @@ var url_to_reminder = {
 function getReminders(taburl, onLoad, onError) {
 	var x = new XMLHttpRequest();
 	x.open('GET', "https://url-based-reminder.herokuapp.com/user/nbtk123");
+	//x.open('GET', "https://localhost:5000/user/nbtk123");
 	// The Google image search API responds with JSON, so let Chrome parse it.
 	x.responseType = 'json';
 	x.onload = function() {
@@ -48,7 +49,11 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		getCurrentTabUrl(function(url) {
 			getReminders(url, function(reminders) {
 				if (reminders) {
-					alert(reminders);
+					var str = "";
+					for(var i=0; i<reminders.length; i++) {
+						str += "* " + reminders[i] + "\n";
+					}
+					alert(str);
 				}
 			}, function() {
 				//TODO: anything? getReminders request error...

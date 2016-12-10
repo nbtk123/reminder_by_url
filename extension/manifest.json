@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension shows a Google Image search result for the current page",
+  "name": "URL-based reminder",
+  "description": "This extension shows reminders based on websites you visit",
   "version": "1.0",
 
   "browser_action": {
