@@ -1,0 +1,2 @@
+export const REQUEST_URLS = "REQUEST_URLS"
+export const RECEIVE_URLS = "RECEIVE_URLS"

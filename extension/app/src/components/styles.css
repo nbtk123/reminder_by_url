@@ -1,0 +1,4 @@
+.flexCenterHorizontal {
+    display: flex;
+    justify-content: center;
+}

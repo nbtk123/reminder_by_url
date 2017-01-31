@@ -1,6 +1,6 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 
-class Reminder extends Component {
+class Message extends Component {
     render() {
         return (
             <div>
@@ -10,8 +10,8 @@ class Reminder extends Component {
     }
 }
 
-Reminder.propTypes = {
+Message.propTypes = {
     text: React.PropTypes.string
 };
 
-export default Reminder;
+export default Message;
